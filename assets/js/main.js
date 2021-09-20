@@ -117,7 +117,6 @@ function chunkArray(arr, len) {
 
   return newArr;
 }
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 2));
 
 // CHALLENGE 9: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
@@ -133,7 +132,15 @@ function flattenArray(arr) {
 // ex. isAnagram("elbow" "below") === true
 // ex. isAnagram("dormitory", "empty room##") === false
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2) {
+  let lowerStr1 = str1.toLowerCase();
+  let filteredStr1 = [...lowerStr1].filter((e) => e !== " ").sort();
+  let lowerStr2 = str2.toLowerCase();
+  let filteredStr2 = [...lowerStr2].filter((e) => e !== " ").sort();
+  let result = filteredStr1.join("") === filteredStr2.join("") ? true : false;
+
+  return result;
+}
 
 // CHALLENGE 11: LETTER CHANGES
 // Change every letter of the string to the one that follows it and capitalize the vowels

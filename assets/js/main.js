@@ -49,9 +49,9 @@ function capitalizeLetters(str) {
 
 function maxCharacter(str) {
   const array = [...str].filter((e) => e !== " ").sort();
-  let count = 0;
-  let max = 0;
-  let char;
+  let count = 0,
+    max = 0,
+    char;
   for (let i = 0; i < array.length; i++) {
     if (array[i] === array[i - 1] && i > 0) count++;
     else count = 1;
@@ -62,8 +62,6 @@ function maxCharacter(str) {
   }
   return char;
 }
-
-// console.log(maxCharacter("jesusito de mi vida"));
 
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print 'Fizz', for multiples of 5 print 'Buzz'. For numbers which are mutiple of both 3 and 5, print "FizzBuzz".
@@ -80,8 +78,6 @@ function fizzBuzz() {
   }
   return array;
 }
-
-console.log(fizzBuzz());
 
 // CHALLENGE 7: LONGEST WORD
 // Return the longest word of a string
@@ -109,13 +105,28 @@ function longestWord(str) {
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3], [4, 5, 6], [7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2], [3, 4], [5, 6], [7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  const newArr = [];
+  newArr.push(
+    arr.slice(0, len),
+    arr.slice(len, len * 2),
+    arr.slice(len * 2, len * 3)
+  );
+
+  if (arr.length > len * 3) newArr.push(arr.slice(len * 3, len * 4));
+
+  return newArr;
+}
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 2));
 
 // CHALLENGE 9: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
 // ex. flattenArray([[1, 2], [3, 4], [5, 6], [7]]) === [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arr) {}
+function flattenArray(arr) {
+  if (arr[0][0][0]) return arr.flat(2);
+  return arr.flat();
+}
 
 // CHALLENGE 10: ANAGRAM
 // Return true if anagram and false if not
